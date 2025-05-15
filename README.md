@@ -1,6 +1,6 @@
 # BIGUE hyperbolic embedder
 
-<img src="https://github.com/DynamicaLab/bigue/logo.png" style="float: right;" alt="isolated" width="200"/>
+<img src="https://raw.githubusercontent.com/DynamicaLab/bigue/refs/heads/main/logo.png" style="float: right;" alt="isolated" width="200"/>
 
 Bayesian Inference of a Graph's Unkown Embedding (BIGUE) is a Markov Chain Monte Carlo algorithm that samples the best hyperbolic embeddings of a given network according to a Bayesian $\mathbb{S}^1$ model.
 
