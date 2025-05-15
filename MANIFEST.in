@@ -1,1 +1,2 @@
 include pybigue/stan/*.stan
+exclude logo.png
