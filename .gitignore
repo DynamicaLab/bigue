@@ -1,0 +1,6 @@
+stan.log
+sample/
+__pycache__/
+dist/
+build/
+pybigue.egg-info/

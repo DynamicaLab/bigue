@@ -1,0 +1,7 @@
+*
+!*.*
+*.hpp
+
+!.py
+!.stan
+!.gitignore

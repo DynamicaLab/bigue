@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pybigue"
+version = "1.0.0"
+authors = [{name = "Simon Lizotte", email = "simon.lizotte.1@ulaval.ca"},]
+description = "Sampling algorithm of network hyperbolic embeddings."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "scipy",
+    "cmdstanpy",
+    "numba",
+]
+license = "GPL-3.0-or-later"
+license-files = ["LICEN[CS]E*"]
+classifiers = [
+    "Programming Language :: Python :: 3"
+]
+keywords = ["mcmc", "hyperbolic", "embedding", "networks"]
+
+[project.urls]
+Repository = "https://github.com/DynamicaLab/bigue.git"
+
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools]
+packages = ["pybigue"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+"pybigue" = ["pybigue/stan/*.stan"]
