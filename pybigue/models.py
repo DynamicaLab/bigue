@@ -38,30 +38,22 @@ class S1Model:
             for j in range(i + 1, n):
                 chi = R_div_mu * angular_distance_1d(
                     theta[i], theta[j]) / kappa[i] / kappa[j]
-                sign = 1 if adjacency[i][j] == 1 else -1
+                sign = 1 if adjacency[i, j] == 1 else -1
                 total -= log1pexp( sign*beta*np.log(chi) )
         return total
 
     @staticmethod
-    def approximate_loglikelihood(graph, average_degree, parameters: EmbeddingParameters, b=3):
+    def approximate_loglikelihood(adjacency, average_degree, theta, kappa, beta, b=3):
         """Compute log-likelihood of differentiable S^1 model."""
-        theta, kappa, beta = parameters.theta, parameters.kappa, parameters.beta
-        if theta is None:
-            raise ValueError("Theta cannot be None in loglikelihood.")
-        if kappa is None:
-            raise ValueError("Kappa cannot be None in loglikelihood.")
-        if beta is None:
-            raise ValueError("Beta cannot be None in loglikelihood.")
-
         total = 0
 
-        n = graph.get_size()
+        n = adjacency.shape[0]
         R_div_mu = (n * average_degree) / (beta * np.sin(np.pi / beta))
         for i in range(n - 1):
             for j in range(i + 1, n):
                 chi = R_div_mu * differentiable_angular_distance(
                     theta[i], theta[j], b) / kappa[i] / kappa[j]
-                sign = 1 if graph.has_edge(i, j) else -1
+                sign = 1 if adjacency[i, j] else -1
                 total -= log1pexp( sign*beta*np.log(chi) )
 
         return total
